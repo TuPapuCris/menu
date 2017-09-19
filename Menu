@@ -1,0 +1,104 @@
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+
+public class Menu {
+
+		public static void OpenGm(Player p) {
+			
+			ItemStack item0 = new ItemStack(Material.GRASS);
+			ItemMeta meta0 = item0.getItemMeta();
+			meta0.setDisplayName("§aModo De Juego Survival!");
+			item0.setItemMeta(meta0);
+			
+			ItemStack item1 = new ItemStack(Material.ANVIL);
+			ItemMeta meta1 = item1.getItemMeta();
+			meta1.setDisplayName("§aModo De Juego Creativo!");
+			item1.setItemMeta(meta1);
+			
+			ItemStack item2 = new ItemStack(Material.ARMOR_STAND);
+			ItemMeta meta2 = item1.getItemMeta();
+			meta2.setDisplayName("§aModo De Juego Espectador!");
+			item2.setItemMeta(meta1);
+			
+			
+			
+			
+			
+			
+			
+			Inventory inventario =	Bukkit.createInventory(null, 18,"§aGamemode");
+	
+			inventario.setItem(2, item0);
+			inventario.setItem(6, item1);
+			inventario.setItem(13, item2);
+			
+			p.openInventory(inventario);
+		
+		}
+
+
+		public static void OpenTiempo(Player p) {
+			
+			ItemStack item0 = new ItemStack(Material.BARRIER);
+			ItemMeta meta0 = item0.getItemMeta();
+			meta0.setDisplayName("§aDespejado!");
+			item0.setItemMeta(meta0);
+			
+			ItemStack item1 = new ItemStack(Material.SNOW_BALL);
+			ItemMeta meta1 = item1.getItemMeta();
+			meta1.setDisplayName("§aNevando!");
+			item1.setItemMeta(meta1);
+			
+			ItemStack item2 = new ItemStack(Material.WATER_BUCKET);
+			ItemMeta meta2 = item1.getItemMeta();
+			meta2.setDisplayName("§aLluvia!");
+			item2.setItemMeta(meta1);
+			
+			
+			
+			
+			
+			
+			
+			Inventory inventario =	Bukkit.createInventory(null, 18,"§aTiempo");
+	
+			inventario.setItem(2, item0);
+			inventario.setItem(6, item1);
+			inventario.setItem(13, item2);
+			
+			p.openInventory(inventario);
+}
+
+		public static void OpenHora(Player p) {
+			
+			ItemStack item0 = new ItemStack(Material.YELLOW_FLOWER);
+			ItemMeta meta0 = item0.getItemMeta();
+			meta0.setDisplayName("§aDe Dia!");
+			item0.setItemMeta(meta0);
+			
+			ItemStack item1 = new ItemStack(Material.INK_SACK);
+			ItemMeta meta1 = item1.getItemMeta();
+			meta1.setDisplayName("§aDe Noche!");
+			item1.setItemMeta(meta1);
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			Inventory inventario =	Bukkit.createInventory(null, 9,"§aHora");
+	
+			inventario.setItem(2, item0);
+			inventario.setItem(6, item1);
+			
+			
+			p.openInventory(inventario);
+		}
+}
