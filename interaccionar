@@ -1,0 +1,114 @@
+import org.bukkit.GameMode;
+import org.bukkit.Material;
+import org.bukkit.WeatherType;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import com.gmail.criscamm2002.principal;
+
+public class Interaccionar implements Listener {
+
+	
+		public Interaccionar() {
+			principal.instance.getServer().getPluginManager().registerEvents(this, principal.instance);
+			 
+		}
+		
+		@EventHandler 
+		public void Altocar(InventoryClickEvent e) {
+			if ((e.getInventory().getName().contains("§aTiempo"))) {
+				e.setCancelled(true);
+				}
+			Player p = (Player)e.getWhoClicked();
+			ItemStack clicked = e.getCurrentItem();
+			Inventory inv = e.getInventory();
+			if(inv.getName().equals("§aTiempo")) 
+				if(clicked.getType()== Material.WATER_BUCKET)	{
+					p.sendMessage("§bModo de tiempo:§fLuvioso"); 
+					p.setPlayerWeather(WeatherType.DOWNFALL);
+					p.closeInventory();
+					e.setCancelled(true);
+					} else {
+						if(clicked.getType()== Material.SNOW_BALL)	{
+							p.sendMessage("§c§bModo de tiempo:§fNevando");
+							p.setPlayerWeather(WeatherType.DOWNFALL);
+							p.closeInventory();
+							e.setCancelled(true);
+				
+					}	else {
+							if(clicked.getType()== Material.BARRIER)	{
+								p.sendMessage("§bModo de tiempo:§fDespejado");
+								p.setPlayerWeather(WeatherType.CLEAR);
+								p.closeInventory();
+								e.setCancelled(true);
+					}
+			
+				}	
+					
+					}
+		}
+			@EventHandler 
+			public void Altoque(InventoryClickEvent e) {
+				if ((e.getInventory().getName().contains("§aGamemode"))) {
+					e.setCancelled(true);
+					}
+				Player p = (Player)e.getWhoClicked();
+				ItemStack clicked = e.getCurrentItem();
+				Inventory inv = e.getInventory();
+				if(inv.getName().equals("§aGamemode")) 
+					if(clicked.getType()== Material.GRASS)	{
+						p.sendMessage("§cModo de juego actualizado");
+						p.setGameMode(GameMode.SURVIVAL);
+						p.closeInventory();
+						e.setCancelled(true);
+						} else {
+							if(clicked.getType()== Material.ANVIL)	{
+								p.sendMessage("§cModo de juego actualizado");
+								p.setGameMode(GameMode.CREATIVE);
+								p.closeInventory();
+								e.setCancelled(true);
+					
+						}	else {
+								if(clicked.getType()== Material.ARMOR_STAND)	{
+									p.sendMessage("§cModo de juego actualizado");
+									p.setGameMode(GameMode.SPECTATOR);
+									p.closeInventory();
+									e.setCancelled(true);
+						}
+						}
+					}	
+			}		
+							
+		
+		
+				@EventHandler 
+				public void Altoquer(InventoryClickEvent e) {
+					if ((e.getInventory().getName().contains("§aHora"))) {
+						e.setCancelled(true);
+						}
+					Player p = (Player)e.getWhoClicked();
+					ItemStack clicked = e.getCurrentItem();
+					Inventory inv = e.getInventory();
+					if(inv.getName().equals("§aHora")) 
+						if(clicked.getType()== Material.YELLOW_FLOWER)	{
+							p.sendMessage("§cHorario Actualizado a§f:§a8:00 AM");
+							p.setPlayerTime(2000,true);
+							p.closeInventory();
+							e.setCancelled(true);
+							} else {
+								if(clicked.getType()== Material.INK_SACK)	{
+									p.sendMessage("§cHorario Actualizado a§f:§a7:00 PM");
+									p.setPlayerTime(13000,true);
+									p.closeInventory();
+									e.setCancelled(true);
+						
+							
+						}	
+			}
+			
+			}
+
+}
